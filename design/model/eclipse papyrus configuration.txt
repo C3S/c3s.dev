@@ -1,6 +1,6 @@
 This model was developed with Papyrus, an UML designer plugin for Eclipse. The configuration is as follows:
 
-Download the Eclipse Modeling Tools package (file eclipse-modeling-juno-SR1-win32-x86_64.zip) from "http://www.eclipse.org/downloads/". If you already have an existing Eclipse installation, make sure it is up to date (Eclipse Juno 4.2)
+Download the Eclipse Modeling Tools package from "http://www.eclipse.org/downloads/". If you already have an existing Eclipse installation, make sure it is up to date (Eclipse Juno 4.2)
 
 Next you need to install Papyrus.
 
