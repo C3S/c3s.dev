@@ -11,6 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   Papyrus <papyrus>
+   Logisches Datenmodell <model>
 
 
 Indices and tables
