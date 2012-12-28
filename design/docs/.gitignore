@@ -1,0 +1,8 @@
+.installed.cfg
+bin/
+doctrees/
+eggs/
+html/
+include/
+lib/
+local/
