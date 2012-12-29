@@ -40,10 +40,14 @@ Mitgliederverwaltung
 	* Anzahl der gezeichneten Anteile
 	* Telefonnummer?
 	* Handynummer?
+	* Version der akzeptierten Satzung
 * Frontend
 	* Mitglieder können ihre Daten ändern
 	* Verwaltung kann Mitgliedsdaten ändern
 	* Web/App/etc.
+* Notizen
+	* Satzung sollte versioniert werden. Es muss gespeichert werden, welche Version der Satzung ein Mitglied akzeptiert hat.
+
 
 	
 Vertreterverwaltung
@@ -51,6 +55,7 @@ Vertreterverwaltung
 
 * Daten
 	* Anzahl der gezeichneten Anteile (investierende Mitgliedschaft)
+
 
 Repertoireverwaltung
 --------------------
@@ -67,6 +72,11 @@ Repertoireverwaltung
 			* Urheber
 			* Tags
 			* Fingerprint
+				* Acoustic Finerprinting
+					* Acoustid (http://acoustid.org)
+					* Code Chromaprint (http://acoustid.org/chromaprint)
+					* http://en.wikipedia.org/wiki/Acoustic_fingerprint
+					* http://wiki.musicbrainz.org/AudioFingerprint
 		* Lizenz (CC BY/SA/NC/ND, andere, keine)
 		* Zuständige Verwertungsgesellschaft (C3S, GEMA, andere, keine)
 		* Verwertungsarten (was soll welche VG wahrnehmen)
@@ -77,17 +87,29 @@ Repertoireverwaltung
 * Fontend
 	* Künstler und Verwaltung können Repertoire eintragen
 	* Datei-Upload (Alternative auch Link zur Audiodatei) und -analyse 
+* Fragen
+	* Abwärtskompatibilität des Fingerprints?
 
 
-Veranstalterverwaltung
+Nutzerverwaltung
 ----------------------
 
-* Welche Veranstalter sind registriert?
+* Welche Nutzer/Veranstalter sind registriert?
 
 
-Veranstaltungsverwaltung
+Nutzungsumfeldverwaltung
 ------------------------
-* Veranstalter legen Veranstaltungen an
+
+* Veranstalter legen Nutzungskontexte an
+	* Radiosendung
+	* Konzert
+	* Kneipenmusik
+	* DJ-Set im Club
+	* Einbettung in einen Film
+	* Spenden
+	* Urheberrechtsabgaben auf Leermedien
+	* Pauschalabgaben
+	* etc.
 * Daten zum Veranstaltungsort
 	* Größe?
 * Daten zur Veranstaltung selbst
@@ -121,9 +143,14 @@ Verrechnungsverwaltung
 ----------------------
 * Backend
 	* Abrechnung inklusive aufeinander basierender Werke (wenn ein Lied auf einem anderen basiert, wird der ursprüngliche Künstler beteiligt)
+	* Backend sollte selbstständig gewissen Konsistenzprüfungen vornehmen, bspw. buchhalterisch, ob die Aufteilung gewisser Posten in der Summe auch einem erwarteten Wert entspricht.
 	* Was haben die Veranstalter verwertet?
 	* Wie wird das von der Verwertung eingenommene Geld verteilt
 	* ggf. Verrechnung über GEMA, wenn GEMA-Mitglied und nicht C3S
+	* Automatische Anbindung an Buchführung (GnuCash in Datenbank?)
+	* rechtliche Anforderungen an doppelte Buchführung müssen erfüllt werden
+		* Grundsätze ordnungsmäßiger Buchführung (GOB): https://de.wikipedia.org/wiki/Grunds%C3%A4tze_ordnungsm%C3%A4%C3%9Figer_Buchf%C3%BChrung
+		* `§ 5 I EStG <http://www.gesetze-im-internet.de/estg/__5.html>`_
 * Frontend
 	* Für Verwaltung?
 
@@ -146,13 +173,22 @@ Analysen
 	* Was wurde wann/wo gespielt und hat welche Einahmen generiert?
 * Veranstalter
 * Verwaltung
+* API muss wahrscheinlich sehr speziell auf Analysen zugeschnitten sein, um konkrete Analysen zu unterstützen
+* Benutzerdefinierte Auswertung der Daten ist aus Sicherheitsgründen keine gute Idee
 
+
+Online-Abstimmungssystem?
+-------------------------
+
+* Online-System für Abstimmungen durch die Mitglieder?
+	* Wahlcomputer-Problem
+	* Geheime und nachvollziehbare elektronische Wahl quasi unmöglich
+	* Geheime Wahl aus Transparenzgründen ausschließen?
 
 
 Ungeordnete Anforderungssammlung
 --------------------------------
 
-* Wie soll die Analyse gemacht werden? Wie soll der Zugriff über API und die Analyse im Hintergrund funktionieren?
 * Gebühren und Künstler gehören zu einer Verwertungsgesellschaft, über die die Beträge abgerechnet werden.
 	* Entsprechend können die Beträge von der C3S ausgeschüttet oder bspw. an die GEMA weitergegeben werden.
 * Das erste Modul, das fertig werden muss, ist die Mitgliederverwaltung und die Song/Metadaten-Datenbank.
@@ -165,13 +201,7 @@ Ungeordnete Anforderungssammlung
 	* Beteiligung des Künstlers des verwendeten Werks
 	* Remixes von Remixes? Rekursives Problem.
 	* Zunächst solche Fälle nicht verwertbar machen, bis Regelung gefunden ist?
-* Online-System für Abstimmungen durch die Mitglieder?
-	* Wahlcomputer-Problem
-	* Geheime und nachvollziehbare elektronische Wahl quasi unmöglich
-	* Geheime Wahl aus Transparenzgründen ausschließen?
 * Bestätigung der ordentlichen Mitgliedschaft durch Verwaltung bspw. nach Erhalt des unterschriebenen Vertrags
-* Liederdatenbank
-	* Bei Datenstrukturen an Discogs orientieren?
 * Registrierung auch von GEMA-Mitgliedern und Urhebern, die keiner VG angehören
 	* Datenschutzproblematik?
 * Standardformate für Teile des Systems?
@@ -213,24 +243,15 @@ Ungeordnete Anforderungssammlung
 * Rechtevertreter müssen ihre Künstler managen können und alles für sie erledigen können.
 * Historisierung von Daten muss mit deutschem Datenschutz vereinbar sein.
 * Wie Komplex sollen Song-Metadaten dargestellt werden? Labels als String oder Objekte?
-* Satzung sollte versioniert werden. Es muss gespeichert werden, welche Version der Satzung ein Mitglied akzeptiert hat.
-* Acoustic Finerprinting
-	* Acoustid (http://acoustid.org)
-	* Code Chromaprint (http://acoustid.org/chromaprint)
-	* http://en.wikipedia.org/wiki/Acoustic_fingerprint
-	* http://wiki.musicbrainz.org/AudioFingerprint
 * Anzahl der Werke im GEMA-Repertoire
 	* 5 Millionen Werke von 1 Millionen Musikurhebern (http://www.gemazahler.de/gema-faq.html)
 	* 5 Minuten pro Werk (großzügig) macht 25.000.000 Minuten.
 	* 10.584.000 Bytes pro Minute (WAVE) macht 250.000.000.000.000 (240 TB)
 	* Selbst bei MP3 128 kbit (960 KB/Minute) sind es noch 22,3 TB.
 * Bilder/Cover für Werke?
-* Automatische Anbindung an Buchführung (GnuCash in Datenbank?)
 * Es sollte bedacht werden, dass es in Zukunft mehr Verwertungsgesellschaften als C3S und GEMA geben kann und dass verschiedene Verwertungsgesellschaften unterschiedliche Nutzungsarten verwerten könnten.
 * Mitglieder müssen Agenturen, Verlage oder Management als Vertreter erklären können, damit diese in ihrem Auftrag Anmeldung, Abrechnung, etc. vornehmen können.
 * Verfolgbarkeit aller Änderungen pro Benutzer. So wird gut nachvollziehbar, wer welche Einträge gemacht hat. Beispielsweise könnte ein Verlag hunderte Benutzer haben, die bestimmte Dinge machen dürfen. Es ist weder realistisch noch verantwortbar, dass alle Mitarbeiter eines Verlags einen einzigen Account nutzen.
-* Abwärtskompatibilität des Fingerprints?
-* Backend sollte selbstständig gewissen Konsistenzprüfungen vornehmen, bspw. buchhalterisch, ob die Aufteilung gewisser Posten in der Summe auch einem erwarteten Wert entspricht.
 * Automatische Einpflege von Playlists ist ein Modul, das außerhalb des Kernsystems existiert und die API benutzt.
 * Nutzer sollen Vergütungshöhe für gewählte Nutzungsarten selbst vorgeben oder um Nachfrage im speziellen Fall bitten können.
 * Sofortige Zahlung für einfache und einmalige Nutzung anbieten? Sofortüberweisung, Paypal, etc.
@@ -239,5 +260,4 @@ Ungeordnete Anforderungssammlung
 * Lizenzpakete über API abfragen? Dafür müsste erst noch ein Format entworfen werden.
 * Verwertungsauftrag an die C3S soll widerrufbar sein.
 * Playlisten als Audioaufnahme einreichen? Das dürfte verdammt viel Traffic verursachen.
-* Automatische Streamanalyse (gegen Aufschlag) durch C3S?
 
