@@ -2,6 +2,150 @@
 Anforderungen
 ==============
 
+Accountverwaltung
+-----------------
+
+* Backend
+	* Accounts unabhängig von der Rolle
+	* Den Accounts verschiedene Rollen zuweisen (Mitglied/Verwaltung/Veranstalter/Mitarbeiter)
+	* Zuweisung könnte aus rechtlichen Gründen nötig sein. Mitglieder müssen vermutlich Vertrag unterschrieben und Beitrag gezahlt haben. Müssen Veranstalter auch einen Vertrag unterschreiben?
+* Daten
+	* E-Mail-Adresse
+	* Passwort
+* Frontend
+	* Accounts können ihr Passwort und die E-Mail-Adresse ändern
+
+
+Mitgliederverwaltung
+--------------------
+
+* Welche Personen sind als Mitglieder registriert?
+* Backend
+	* Personen, Bands, Verlage? Bekommt Mitgliedsnummer und ist dadurch als Mitgliedsentität identifizierbar.
+	* Kann ein Mitglied aus mehreren Accounts/Personen bestehen, bspw. bei einer Band? Könnten die Bandmitglieder auch einzelne C3S-Mitglieder sein?
+* Daten
+	* Name
+	* Vorname
+	* Straße
+	* Hausnummer
+	* Adresszusatz
+	* PLZ
+	* Ort
+	* Land
+	* Geburtsdatum
+	* Geburtsort?
+	* E-Mail-Adresse
+	* Bankverbindung
+	* Einzugsermächtigung?
+	* Anzahl der gezeichneten Anteile
+	* Telefonnummer?
+	* Handynummer?
+* Frontend
+	* Mitglieder können ihre Daten ändern
+	* Verwaltung kann Mitgliedsdaten ändern
+	* Web/App/etc.
+
+	
+Vertreterverwaltung
+-------------------
+
+* Daten
+	* Anzahl der gezeichneten Anteile (investierende Mitgliedschaft)
+
+Repertoireverwaltung
+--------------------
+
+* Welche Lieder sind zur Vertretung durch die C3S registriert?
+* Backend
+	* Künstler
+	* Lieder
+		* Metadaten (an Discogs orientieren?)
+			* Interpret?
+			* Titel
+			* Jahr
+			* Stilrichtung
+			* Urheber
+			* Tags
+			* Fingerprint
+		* Lizenz (CC BY/SA/NC/ND, andere, keine)
+		* Zuständige Verwertungsgesellschaft (C3S, GEMA, andere, keine)
+		* Verwertungsarten (was soll welche VG wahrnehmen)
+			* Airplay
+			* Club/Kneipe
+			* Film/Werbung
+			* (an GEMA orientieren)
+* Fontend
+	* Künstler und Verwaltung können Repertoire eintragen
+	* Datei-Upload (Alternative auch Link zur Audiodatei) und -analyse 
+
+
+Veranstalterverwaltung
+----------------------
+
+* Welche Veranstalter sind registriert?
+
+
+Veranstaltungsverwaltung
+------------------------
+* Veranstalter legen Veranstaltungen an
+* Daten zum Veranstaltungsort
+	* Größe?
+* Daten zur Veranstaltung selbst
+	* Anzahl der Personen?
+	* Dauer?
+
+
+Nutzungsverwaltung
+------------------
+* Backend
+	* Verwertungen
+		* Abspielung analog/digital (Club, Kneipe, Radio, YouTube-Stream, Party)
+			* Einreichen von Playlists durch Veranstalter/DJ?
+		* Aufführung (Konzert, Videoeinbettung?)
+		* Download, Filmeinbettung, Werbungseinbettung, Flattr, Spenden, etc.
+	* Leermedien
+	* Pauschale Beteiligungen/GEZ?
+	* Spenden (Flattr/Paypal)?
+	* Auch Übermittlung zur und von der GEMA
+* Frontend
+	* Übermittlung von Playlists
+		* Automatische/Dateien
+			* DJ-Software
+			* Internet-Radio-Software
+			* Übermittlung durch Services wie YouTube
+		* Manuelle Eingabe
+	* Automatische Identifikation per Audio-Tagging wie Shazam
+
+	
+Verrechnungsverwaltung
+----------------------
+* Backend
+	* Abrechnung inklusive aufeinander basierender Werke (wenn ein Lied auf einem anderen basiert, wird der ursprüngliche Künstler beteiligt)
+	* Was haben die Veranstalter verwertet?
+	* Wie wird das von der Verwertung eingenommene Geld verteilt
+	* ggf. Verrechnung über GEMA, wenn GEMA-Mitglied und nicht C3S
+* Frontend
+	* Für Verwaltung?
+
+
+Abrechnungsverwaltung
+---------------------
+* Backend
+	* Wie wird das Geld der Verwertung ausgeschüttet?
+	* Einnahmen
+	* Mitgliedsbeiträge
+	* Überweisung? Wann wie ausgeführt?
+* Frontend
+	* Einsicht in Abrechnungen
+
+
+Analysen
+--------
+
+* Mitglieder
+	* Was wurde wann/wo gespielt und hat welche Einahmen generiert?
+* Veranstalter
+* Verwaltung
 
 
 
