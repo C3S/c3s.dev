@@ -1,32 +1,54 @@
-﻿==============
+﻿=============
 Anforderungen
-==============
+=============
+
+
+Mögliche Strategie
+------------------
+
+* Zunächst Mitglieder und Repertoire sammeln
+* Mitglieder- und Repertoireverwaltung müssen zuerst existieren
+* Elektronische Tanzmusik könnte ein attraktives erstes Marktsegment sein
+	* Wird viel in Clubs gespielt
+	* erhält wegen Pauschalisierung mutmaßlich verhältnismäßig wenig Ausschüttung durch die GEMA
+	* Vereinzelte Clubbetreiber haben Interesse an Abrechnungsgenauigkeit durch Blackboxen signalisiert
+* Mitglieder bei der Registrierung nach Stilrichtungen und Anwendungsgebieten fragen, damit wir uns einen Überblick verschaffen können
+	* Musik für Computerspiele?
+	* Club-Musik?
+	* Elektronisch/Pop/Klassik?
 
 
 Accountverwaltung
 -----------------
 
-* Backend
-	* Accounts unabhängig von der Rolle
-	* Den Accounts verschiedene Rollen zuweisen (Mitglied/Verwaltung/Veranstalter/Mitarbeiter)
-	* Zuweisung könnte aus rechtlichen Gründen nötig sein. Mitglieder müssen vermutlich Vertrag unterschrieben und Beitrag gezahlt haben. Müssen Veranstalter auch einen Vertrag unterschreiben?
+* Zweck
+	* Accounts/Logins werden unabhängig von der Rolle als technischer Zugang zum System verwaltet
+* Anwendungsfälle
+	* Accounts registriert werden
+	* Passwort und E-Mail-Adresse ändern
 * Daten
 	* E-Mail-Adresse
 	* Passwort
-* Frontend
-	* Accounts können ihr Passwort und die E-Mail-Adresse ändern
+* Backend
+	* Accounts unabhängig von der Rolle
+	* Den Accounts verschiedene Rollen zuweisen (Mitglied/Verwaltung/Veranstalter/Mitarbeiter)
 * Notizen
+	* Zuweisung könnte aus rechtlichen Gründen nötig sein. Mitglieder müssen vermutlich Vertrag unterschrieben und Beitrag gezahlt haben. Müssen Veranstalter auch einen Vertrag unterschreiben?
 	* Ein Account kann theoretisch alle Rollen einnehmen. Eine Person kann gleichzeitig Künstler, Vertreter, Nutzer und Verwalter sein.
 
 
 Mitgliederverwaltung
 --------------------
 
-* Welche Personen sind als Mitglieder registriert?
-* Backend
-	* Personen, Bands, Verlage? Bekommt Mitgliedsnummer und ist dadurch als Mitgliedsentität identifizierbar.
-	* Kann ein Mitglied aus mehreren Accounts/Personen bestehen, bspw. bei einer Band? Könnten die Bandmitglieder auch einzelne C3S-Mitglieder sein?
+* Zweck
+	* Mitgliedsspezifische Daten und Zusammenhänge werden verwaltet
+* Anwendungsfälle
+	* Mitgliedsdaten werden verwaltet
+	* Mitglieder können ihre Daten ändern
+	* Verwaltung kann Mitgliedsdaten ändern
 * Daten
+	* Mitgliedsnummer
+	* Firma?
 	* Name
 	* Vorname
 	* Straße
@@ -44,10 +66,10 @@ Mitgliederverwaltung
 	* Telefonnummer?
 	* Handynummer?
 	* Version der akzeptierten Satzung
-* Frontend
-	* Mitglieder können ihre Daten ändern
-	* Verwaltung kann Mitgliedsdaten ändern
-	* Web/App/etc.
+* Backend
+	* Account bekommt die Rolle "Mitglied"
+	* Personen, Bands, Verlage? Bekommt Mitgliedsnummer und ist dadurch als Mitgliedsentität identifizierbar
+	* Kann ein Mitglied aus mehreren Accounts/Personen bestehen, bspw. bei einer Band? Könnten die Bandmitglieder auch einzelne C3S-Mitglieder sein?
 * Notizen
 	* Satzung sollte versioniert werden. Es muss gespeichert werden, welche Version der Satzung ein Mitglied akzeptiert hat.
 	* Mitglieder müssen Agenturen, Verlage oder Management als Vertreter erklären können, damit diese in ihrem Auftrag Anmeldung, Abrechnung, etc. vornehmen können.
@@ -61,8 +83,16 @@ Mitgliederverwaltung
 Vertreterverwaltung
 -------------------
 
+* Zweck
+	* Daten und Zusammenhänge der Rolle "Vertreter" werden verwaltet
+	* Vertreter handeln im Namen von Mitgliedern und regeln in deren Auftrag entsprechende Belange
+* Anwendungsfälle
+	* Vertreten können sich registrieren und ihre Daten ändern
+	* Vertreter können alle (?) Aktionen im Namen ihrer vertretenden Mitglieder durchführen
+	* Verwaltung kann Vertreterdaten "korrigieren"
 * Daten
 	* Anzahl der gezeichneten Anteile (investierende Mitgliedschaft)
+	* Adresse, etc.?
 * Notizen
 	* Rechtevertreter müssen ihre Künstler managen können und alles für sie erledigen können.
 
@@ -70,7 +100,13 @@ Vertreterverwaltung
 Repertoireverwaltung
 --------------------
 
-* Welche Lieder sind zur Vertretung durch die C3S registriert?
+* Zweck
+	* Zentrale Komponente des Systems
+	* Enthält Metadaten, die registrierte Werke beschreiben
+* Anwendungsfälle
+	* Künstler und Verwaltung können Repertoire eintragen
+	* Datei-Upload (Alternative auch Link zur Audiodatei) und -analyse?
+	* Fingerprint automatisch erstellen?
 * Backend
 	* Künstler
 	* Lieder
@@ -93,9 +129,6 @@ Repertoireverwaltung
 			* Club/Kneipe
 			* Film/Werbung
 			* (an GEMA orientieren)
-* Fontend
-	* Künstler und Verwaltung können Repertoire eintragen
-	* Datei-Upload (Alternative auch Link zur Audiodatei) und -analyse 
 * Fragen/Probleme
 	* Abwärtskompatibilität des Fingerprints?
 	* Anzahl der Werke im GEMA-Repertoire
@@ -111,31 +144,89 @@ Repertoireverwaltung
 Nutzerverwaltung
 ----------------------
 
-* Welche Nutzer/Veranstalter sind registriert?
+* Zweck
+	* Die Account-Rolle des Nutzers kann Nutzungsumfelder anlegen, in deren Zusamenhang Werke genutzt werden
+* Anwendungsfälle
+	* Ein Account bekommt die Rolle des Nutzers/Veranstalters und kann daraufhin 
 
 
 Nutzungsumfeldverwaltung
 ------------------------
 
-* Veranstalter legen Nutzungskontexte an
-	* Radiosendung
-	* Konzert
-	* Kneipenmusik
-	* DJ-Set im Club
-	* Einbettung in einen Film
-	* Spenden
-	* Urheberrechtsabgaben auf Leermedien
-	* Pauschalabgaben
-	* etc.
-* Daten zum Veranstaltungsort
-	* Größe?
-* Daten zur Veranstaltung selbst
-	* Anzahl der Personen?
-	* Dauer?
+* Zweck
+	* Nutzer/Veranstalter legen Nutzungskontexte an
+		* Radiosendung
+		* Konzert
+		* Kneipenmusik
+		* DJ-Set im Club
+		* Einbettung in einen Film
+		* Spenden
+		* Urheberrechtsabgaben auf Leermedien
+		* Pauschalabgaben
+		* etc.
+* Sammlung von GEMA-Abrechnungsgrundlagen aller möglichen Tarife (zum Überblick)
+	* Eintrittspreis
+		* Eintrittspreis
+		* Prozent der Einnahmen
+		* Prozent vom Listenpreis
+		* Prozentual
+		* Prozentual Roheinnahmen (6 %)
+		* Prozentual von Nettobeträgen der Senderechte
+	* Publikum
+		* Belegschaftsgröße (Anzahl Angestellte = Publikumsgröße)
+		* Fassungsvermögen (Anzahl Personen)
+		* Gemeindegröße (durchschnittliche Besucher des Hauptgottesdiensts)
+		* Publikumsgröße (Anzahl Zuschauer)
+		* Publikumsgröße (weitester Hörerkreis)
+		* Sitzplätze (Anzahl)
+	* Örtlichkeit
+		* Anzahl Betriebsstätten
+		* Anzahl Empfangsgeräte (10% Aufschlag je zusätzliches Gerät im Zimmer)
+		* Anzahl Geräte
+		* Anzahl Lautsprecher
+		* Anzahl Lautsprecherwagen
+		* Anzahl Monitore
+		* Anzahl Sitzplätze
+		* Anzahl Veranstaltungsplätze
+		* Anzahl Zimmer
+		* Art (allgemein/Gaststätten und ähnliche/Aufenthaltsräume, Warteräume u.ä. ohne Wirtschaftsbetrieb/Omnibusse)
+		* Bereich (Sauna und Sport/Bistro)
+		* maximale Anzahl Passagiere
+		* Raumgröße (1 m² = 1,5 Personen im Publikum)
+		* Raumgröße (im m²)
+	* Nutzungsintensität
+		* Anzahl Amtsleitungen
+		* Anzahl angefangen Zugriffe (je. 10.000)
+		* Anzahl Downloads
+		* Anzahl Filmvorführungen
+		* Anzahl Tage
+		* Intensität der Interaktivität des Dienstes (hoch, mittel, niedrig)
+		* Musikanteil des Diensts (25/50/75 %)
+		* Nutzungszeit pro Monat (mehr als 16 Tage im Monat/weniger als 16 Tage im Monat)
+		* Sendezeit (verhältnismäßig, 24/7 = 100%)
+		* Spieldauer (Anzahl Sekunden)
+	* Darbietungform
+		* Anzahl ausübende Künstler (bis zu 9/mehr als 9)
+	* Wiedergabemedium
+		* Medium (Schallplatte, Musikkassette, Compact Disc, MiniDisc, Digital Compact Cassette)
+		* Tonträgerart (Hörfunkwiedergabe/Musik auf Website/Original/Vervielfältigungsstück [gebrannt, MP3, Festplatte, etc.])
+		* Tonträgerart (Hörfunkwiedergabe/Original/Vervielfältigungsstück [gebrannt, MP3, Festplatte, etc.])
+		* Tonträgerart (Original/Vervielfältigungsstück [gebrannt, MP3, Festplatte, etc.])
 
 
 Nutzungsverwaltung
 ------------------
+
+* Zweck
+	* Auflistung, welche Werke in welchem Nutzungsumfeld von welchem Nutzer genutzt wurden
+* Anwendungsfälle
+	* Übermittlung von Playlists
+		* Automatische/Dateien
+			* DJ-Software
+			* Internet-Radio-Software
+			* Übermittlung durch Services wie YouTube
+		* Manuelle Eingabe
+	* Identifizierung durch Fingerprinting
 * Backend
 	* Verwertungen
 		* Abspielung analog/digital (Club, Kneipe, Radio, YouTube-Stream, Party)
@@ -146,14 +237,6 @@ Nutzungsverwaltung
 	* Pauschale Beteiligungen/GEZ?
 	* Spenden (Flattr/Paypal)?
 	* Auch Übermittlung zur und von der GEMA
-* Frontend
-	* Übermittlung von Playlists
-		* Automatische/Dateien
-			* DJ-Software
-			* Internet-Radio-Software
-			* Übermittlung durch Services wie YouTube
-		* Manuelle Eingabe
-	* Identifizierung durch Fingerprinting
 * Notizen
 	* Sofortige Zahlung für einfache und einmalige Nutzung anbieten? Sofortüberweisung, Paypal, etc.
 * Fragen/Probleme
@@ -166,6 +249,10 @@ Nutzungsverwaltung
 	
 Verrechnungsverwaltung
 ----------------------
+
+* Anwendungsfälle
+	* Verwaltung kann Verrechnungsdetails administrieren
+	* Regeln zur Berechnung des Vergütungsentgelds können geändert werden
 * Backend
 	* Abrechnung inklusive aufeinander basierender Werke (wenn ein Lied auf einem anderen basiert, wird der ursprüngliche Künstler beteiligt)
 	* Backend sollte selbstständig gewissen Konsistenzprüfungen vornehmen, bspw. buchhalterisch, ob die Aufteilung gewisser Posten in der Summe auch einem erwarteten Wert entspricht.
@@ -176,30 +263,34 @@ Verrechnungsverwaltung
 	* rechtliche Anforderungen an doppelte Buchführung müssen erfüllt werden
 		* `Grundsätze ordnungsmäßiger Buchführung (GOB) <https://de.wikipedia.org/wiki/Grunds%C3%A4tze_ordnungsm%C3%A4%C3%9Figer_Buchf%C3%BChrung>`_
 		* `§ 5 I EStG <http://www.gesetze-im-internet.de/estg/__5.html>`_
-* Frontend
-	* Für Verwaltung?
 
 
 Abrechnungsverwaltung
 ---------------------
-* Backend
+
+* Anwendungsfälle
+	* Einsicht in Abrechnungen
+* Notizen/Fragen
 	* Wie wird das Geld der Verwertung ausgeschüttet?
 	* Einnahmen
 	* Mitgliedsbeiträge
 	* Überweisung? Wann wie ausgeführt?
-* Frontend
-	* Einsicht in Abrechnungen
 
 
 Analysen
 --------
 
-* Mitglieder
-	* Was wurde wann/wo gespielt und hat welche Einahmen generiert?
-* Veranstalter
-* Verwaltung
-* API muss wahrscheinlich sehr speziell auf Analysen zugeschnitten sein, um konkrete Analysen zu unterstützen
-* Benutzerdefinierte Auswertung der Daten ist aus Sicherheitsgründen keine gute Idee
+* Zweck
+	* Mitglieder, Nutzer und Verwaltung haben ein Interesse daran, gewisse Fakten über ihre Belange zu erfahren
+	* Mitglieder interessieren sich dafür, welche ihrer Werke wann, wo und wie genutzt werden
+* Anwendungsfälle
+	* Mitglieder
+		* Was wurde wann/wo gespielt und hat welche Einahmen generiert?
+	* Veranstalter
+	* Verwaltung
+* Fragen/Notizen
+	* API muss wahrscheinlich sehr speziell auf Analysen zugeschnitten sein, um konkrete Analysen zu unterstützen
+	* Benutzerdefinierte Auswertung der Daten ist aus Sicherheitsgründen keine gute Idee
 
 
 Online-Abstimmungssystem?
@@ -278,4 +369,6 @@ Ungeordnete Anforderungssammlung
 * Entwicklung
 	* Wie wird sichergestellt, dass Leute, die mitentwickeln, nicht auf alle Daten zugreifen können oder durch Erweiterungen des Codes Funktionen einbauen, die ihnen das erlaubt?
 	* Wie werden die Login-Daten zur Datenbank geheim gehalten, wenn der Code versioniert wird?
-
+* `DJ Monitor <http://www.djmonitor.com/>`_ als Box zur Analyse von DJ-Sets verwenden?
+* Sollten bestimmte Account-Rollen ohne Freischaltung verfügbar sein, bspw. Nutzer? Mitglieder und Vertreter müssen auf jeden Fall freigeschaltet werden!
+* Analysen müssen nach gesetzlichen und ggf. anderen Maßstäben anonymisiert werden
