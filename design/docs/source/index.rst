@@ -13,7 +13,8 @@ Contents:
 
    Papyrus <papyrus>
    Anforderungsanalyse <requirements>
-   Logisches Datenmodell <model>
+   Logisches Datenmodell <logical_data_model>
+   Physisches Datenmodell <physical_data_model>
 
 
 Indices and tables

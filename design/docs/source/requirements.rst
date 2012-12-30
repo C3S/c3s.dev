@@ -2,6 +2,8 @@
 Anforderungen
 =============
 
+Dieses Dokument dient der Sammlung und Strukturierung der Anforderungen an das benötigte IT-System der C3S.
+
 
 Mögliche Strategie
 ------------------
@@ -311,6 +313,8 @@ API
 
 Erweiterbarkeit
 ---------------
+
+* Todo
 
 
 Allgemeine Fragen und Probleme
