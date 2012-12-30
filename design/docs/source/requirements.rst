@@ -73,7 +73,7 @@ Mitgliederverwaltung
 	* Personen, Bands, Verlage? Bekommt Mitgliedsnummer und ist dadurch als Mitgliedsentität identifizierbar
 	* Kann ein Mitglied aus mehreren Accounts/Personen bestehen, bspw. bei einer Band? Könnten die Bandmitglieder auch einzelne C3S-Mitglieder sein?
 * Notizen
-	* Satzung sollte versioniert werden. Es muss gespeichert werden, welche Version der Satzung ein Mitglied akzeptiert hat.
+	* Satzung sollte versioniert werden
 	* Mitglieder müssen Agenturen, Verlage oder Management als Vertreter erklären können, damit diese in ihrem Auftrag Anmeldung, Abrechnung, etc. vornehmen können.
 	* Möglichkeit zur Authorisierung von Verlagen oder Management zur Wahrnehmung der Rechte und Abrechnung, etc.
 * Fragen/Probleme
