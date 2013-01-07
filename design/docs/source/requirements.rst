@@ -214,6 +214,57 @@ Nutzungsumfeldverwaltung
 		* Tonträgerart (Hörfunkwiedergabe/Musik auf Website/Original/Vervielfältigungsstück [gebrannt, MP3, Festplatte, etc.])
 		* Tonträgerart (Hörfunkwiedergabe/Original/Vervielfältigungsstück [gebrannt, MP3, Festplatte, etc.])
 		* Tonträgerart (Original/Vervielfältigungsstück [gebrannt, MP3, Festplatte, etc.])
+* Sammlung von Jamendo-Abrechnungsgrundlagen
+	* Jamendo Track (http://pro.jamendo.com/de/product/licensing/prices)
+		* Internet
+			* Anzahl Seiten (eine/mehrere)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Firma
+			* Geografisch (national, international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Werbung
+			* Geografisch (regional, national, internation, national & Internet, nur Internet)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Kurzfilm
+			* Geografisch (regional, national, international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Film
+			* Geografisch (national, international)
+			* (Dauer nur unbegrenzt)
+		* Dokumentarfilm
+			* Geografisch (regional, national, international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Telefonwarteschleife
+			* (pro 10 Titel unbegrenzt)
+		* TV-Sendung & -Filme
+			* Geografisch (regional, national, international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Darstellende Künste
+			* Geografisch (regional, national, international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Videospiele
+			* Wiedergabegerät (Software, Online-Videospiel, Konsole oder PC)
+			* (Dauer nur unbegrenzt)
+		* Audio
+			* Verkauf (kostenlos, Verkauf)
+			* (Dauer nur unbegrenzt)
+			* (bis zu 45.000 Kopien)
+		* Audio-Guide
+			* Geografisch (national, international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Radio-Jingle
+			* (Geografisch nur international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+		* Multisupport
+			* (Geografisch nur international)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+	* Jamendo Flow (http://pro.jamendo.com/de/product/background/prices)
+		* Hintergrundmusik für Handelsflächen oder öffentliche Plätze
+			* Gewerbliche Fläche (abhängig von m²)
+			* Dauer (1 Jahr, 3 Jahre, unbegrenzt)
+
+
+
 
 
 Nutzungsverwaltung
