@@ -24,7 +24,8 @@ Accountverwaltung
 -----------------
 
 * Zweck
-	* Accounts/Logins werden unabhängig von der Rolle als technischer Zugang zum System verwaltet
+	* Accounts/Logins werden unabhängig von der Rolle als technischer Zugang zum System verwaltet.
+	* Durch OpenLdap werden die logins in verschiedenen Kontexten wiederverwendbar.
 * Anwendungsfälle
 	* Accounts registriert werden
 	* Passwort und E-Mail-Adresse ändern
@@ -37,6 +38,28 @@ Accountverwaltung
 * Notizen
 	* Zuweisung könnte aus rechtlichen Gründen nötig sein. Mitglieder müssen vermutlich Vertrag unterschrieben und Beitrag gezahlt haben. Müssen Veranstalter auch einen Vertrag unterschreiben?
 	* Ein Account kann theoretisch alle Rollen einnehmen. Eine Person kann gleichzeitig Künstler, Vertreter, Nutzer und Verwalter sein.
+
+
+.. list-table:: c3sAccount: List of Attributes
+   :widths: 20 20 50
+   :header-rows: 1
+
+   * - Name
+     - Format
+     - Purpose / Description
+   * - c3sAccountId
+     - String
+     - account UUID / primary key (?)
+   * - email
+     - String
+     - email for password recovery
+   * - loginName
+     - String or UUID ?
+     - pseudonym or login name
+   * - Password
+     - String
+     - persons password
+
 
 
 Mitgliederverwaltung
@@ -81,6 +104,60 @@ Mitgliederverwaltung
 	* Datenschutzproblematik bei erhobenen Daten?
 	* Benutzerprofil mit Bild und Repertoire (ähnlich Discogs)?
 
+
+.. list-table:: c3sMember: List of Attributes
+   :widths: 20 20 50
+   :header-rows: 1
+
+   * - Name
+     - Format
+     - Purpose / Description
+   * - c3sId
+     - String
+     - member UUID / primary key (?)
+   * - IsSCEMember
+     - Boolean or Integer 
+     - membership status related to c3s SCE; boolean iff binary, integer if multiple states possible; or link to special DB?
+   * - MemberNumber
+     - Integer
+     - do we need this? might be more human readable than UUID
+   * - Company
+     - String or UUID ?
+     - name of or reference to a company (or name thereof?)
+   * - LastName
+     - String
+     - persons lastname
+   * - FirstName
+     - String
+     - persons firstname
+   * - Address0
+     - AddressRecord
+     - persons current address
+
+   * - StreetName
+     - String
+     - persons street name
+   * - StreetNumber
+     - String
+     - persons street number
+   * - AddressContd
+     - String
+     - persons address continued
+   * - PostCode
+     - String
+     - post code
+   * - City
+     - String
+     - place person lives or receives mail
+   * - Region
+     - String
+     - region of address (optional, some places need this)
+   * - Country
+     - String or Id?
+     - country person is situated in
+
+TODO: refactor out address records
+
 	
 Vertreterverwaltung
 -------------------
@@ -99,8 +176,23 @@ Vertreterverwaltung
 	* Rechtevertreter müssen ihre Künstler managen können und alles für sie erledigen können.
 
 
+.. list-table:: c3sRepresentatives: List of Attributes
+   :widths: 20 20 50
+   :header-rows: 1
+
+   * - Name
+     - Format
+     - Purpose / Description
+   * - c3sRepresentativeId
+     - String
+     - member UUID / primary key (?)
+
+
 Repertoireverwaltung
 --------------------
+
+.. note:: Werkeverwaltung vs. Lizenzmanagement
+
 
 * Zweck
 	* Zentrale Komponente des Systems
