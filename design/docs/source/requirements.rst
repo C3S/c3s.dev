@@ -19,6 +19,20 @@ Mögliche Strategie
 	* Club-Musik?
 	* Elektronisch/Pop/Klassik?
 
+	
+Überblick
+---------
+
+* **Accountverwaltung**: stellt abstrakte und von der Rolle unabhängige Zugangskonten für das Datenverarbeitungssystem der C3S zur Verfügung
+* **Mitgliederverwaltung**: erweitert die Accountverwaltung um Mitgliedsdaten und weitere Möglichkeiten, bspw. der Repertoireverwaltung
+* **Vertreterverwaltung**: dient Vertretern, die von Mitgliedern authorisiert werden, deren Belange zu regeln
+* **Repertoireverwaltung**: ermöglicht es Mitgliedern (oder Vertretern) ihr Repertoire zu verwalten
+* **Lizenznehmerverwaltung**: Nutzer der Werke verwalten ihre Daten
+* **Lizenzverwaltung**: beschreibt die Bedingungen einer Lizenz/Nutzung; Preis für Nutzungsart (Radiosendung, Konzert, DJ-Set, etc.) in Nutzungsumfang (Zeit, Publikumsgröße, etc.)
+* **Lizensierungsverwaltung**: beschreibt die konkrete Nutzung eines Werks durch den Lizenznehmer im Rahmen der erteilten Lizenz
+* **Verrechnungsverwaltung**: stellt die Verrechnungslogik der konkreten Nutzungen dar; für eine Nutzung wird nach den Lizenzbestimmungen ein bestimmtes Entgeld fällig
+* **Abrechnungsverwaltung**: die Abrechnung der konkreten Lizenzentgelte mit den Mitgliedern (Werkschaffenden/Lizenzgebern) bzw. Nutzern (Lizenznehmern)
+	
 
 Accountverwaltung
 -----------------
@@ -32,12 +46,14 @@ Accountverwaltung
 * Daten
 	* E-Mail-Adresse
 	* Passwort
+	* Anzahl der gezeichneten Anteile (investierende Mitgliedschaft)
 * Backend
 	* Accounts unabhängig von der Rolle
 	* Den Accounts verschiedene Rollen zuweisen (Mitglied/Verwaltung/Veranstalter/Mitarbeiter)
 * Notizen
 	* Zuweisung könnte aus rechtlichen Gründen nötig sein. Mitglieder müssen vermutlich Vertrag unterschrieben und Beitrag gezahlt haben. Müssen Veranstalter auch einen Vertrag unterschreiben?
 	* Ein Account kann theoretisch alle Rollen einnehmen. Eine Person kann gleichzeitig Künstler, Vertreter, Nutzer und Verwalter sein.
+	* Ein Account stellt den Zugang für eine natürliche Person zur Verfügung. Diese kann Anteile gezeichnet haben und unterschiedliche (oder keine) Rollen ausüben, wie Mitglied oder Lizenznehmer.
 
 
 .. list-table:: c3sAccount: List of Attributes
@@ -87,7 +103,6 @@ Mitgliederverwaltung
 	* E-Mail-Adresse
 	* Bankverbindung
 	* Einzugsermächtigung?
-	* Anzahl der gezeichneten Anteile
 	* Telefonnummer?
 	* Handynummer?
 	* Version der akzeptierten Satzung
@@ -169,8 +184,8 @@ Vertreterverwaltung
 	* Vertreten können sich registrieren und ihre Daten ändern
 	* Vertreter können alle (?) Aktionen im Namen ihrer vertretenden Mitglieder durchführen
 	* Verwaltung kann Vertreterdaten "korrigieren"
+	* Ein Mitglied kann Vertreter für andere Mitglieder sein
 * Daten
-	* Anzahl der gezeichneten Anteile (investierende Mitgliedschaft)
 	* Adresse, etc.?
 * Notizen
 	* Rechtevertreter müssen ihre Künstler managen können und alles für sie erledigen können.
@@ -225,17 +240,19 @@ Repertoireverwaltung
 			* (an GEMA orientieren)
 * Fragen/Probleme
 	* Abwärtskompatibilität des Fingerprints?
-	* Anzahl der Werke im GEMA-Repertoire
-		* 5 Millionen Werke von 1 Millionen Musikurhebern (http://www.gemazahler.de/gema-faq.html)
-		* 5 Minuten pro Werk (großzügig) macht 25.000.000 Minuten.
-		* 10.584.000 Bytes pro Minute (WAVE) macht 250.000.000.000.000 (240 TB)
-		* Selbst bei MP3 128 kbit (960 KB/Minute) sind es noch 22,3 TB.
+	* Archivierung der Werke nötig?
+		* Anzahl der Werke im GEMA-Repertoire
+			* 5 Millionen Werke von 1 Millionen Musikurhebern (http://www.gemazahler.de/gema-faq.html)
+			* 5 Minuten pro Werk (großzügig) macht 25.000.000 Minuten.
+			* 10.584.000 Bytes pro Minute (WAVE) macht 250.000.000.000.000 (240 TB)
+			* Selbst bei MP3 128 kbit (960 KB/Minute) sind es noch 22,3 TB.
+		* Archivierung ist höchst sicherheitskritisch, weil ein unbefugter Zugang zu den Daten fatale Folgen hätte. Die Werke müssen wahrscheinlich in CD-Qualität (verlustfrei komprimiert, bspw. FLAC) vorliegen. Sollte eine Sammlung dieser Dateien durch Unbefugte kopiert werden, würden hochqualitative Aufnahmen in großem Umfang kursieren.
 	* Nutzer sollen Vergütungshöhe für gewählte Nutzungsarten selbst vorgeben oder um Nachfrage im speziellen Fall bitten können.
 	* Durch die Lizenz kann bestimmt werden, dass einige Nutzungsarten bereits grundsätzlich erlaubt sind und daher nicht verwertet werden können. Bspw. erlaubt CC-BY die kommerzielle Wiedergabe und Sendung.
 	* Bilder/Cover für Werke?
 
 
-Nutzerverwaltung
+Lizenznehmerverwaltung
 ----------------------
 
 * Zweck
@@ -244,7 +261,7 @@ Nutzerverwaltung
 	* Ein Account bekommt die Rolle des Nutzers/Veranstalters und kann daraufhin 
 
 
-Nutzungsumfeldverwaltung
+Lizenzverwaltung
 ------------------------
 
 * Zweck
@@ -359,7 +376,7 @@ Nutzungsumfeldverwaltung
 
 
 
-Nutzungsverwaltung
+Lizensierungsverwaltung
 ------------------
 
 * Zweck
@@ -404,10 +421,10 @@ Verrechnungsverwaltung
 	* Was haben die Veranstalter verwertet?
 	* Wie wird das von der Verwertung eingenommene Geld verteilt
 	* ggf. Verrechnung über GEMA, wenn GEMA-Mitglied und nicht C3S
-	* Automatische Anbindung an Buchführung (GnuCash in Datenbank?)
 	* rechtliche Anforderungen an doppelte Buchführung müssen erfüllt werden
 		* `Grundsätze ordnungsmäßiger Buchführung (GOB) <https://de.wikipedia.org/wiki/Grunds%C3%A4tze_ordnungsm%C3%A4%C3%9Figer_Buchf%C3%BChrung>`_
 		* `§ 5 I EStG <http://www.gesetze-im-internet.de/estg/__5.html>`_
+	* Schnittstelle zu Buchhaltungssoftware: GnuCash? Professionelle?
 
 
 Abrechnungsverwaltung
@@ -466,6 +483,18 @@ Allgemeine Fragen und Probleme
 * Historisierung von Daten muss mit deutschem Datenschutz vereinbar sein.
 
 
+Entwicklung
+-----------
+
+* Ein geeignetes Web-Application-Framework sollte eingesetzt. Am geeignetsten scheinen derzeit Ruby on Rails und Python.
+
+
+Datenbankmodellierung
+---------------------
+
+* Datenbankprimärschlüssel müssen unabhängig von Identifizierungskennzeichen sein. Beispielsweise darf eine Mitgliedsnummer trotz ihrer Eindeutigkeit nicht als Primärschlüssel verwendet werden. Das ist unabhängig davon, wie wahrscheinlich es ist, dass sich Mitgliedsnummern jemals ändern. Ein Datenbankdesign sollte grundsätzlich unabhängig von äußeren Einflüssen dieser Art sein. Als Primärschlüssel dürfen ausschließlich Surrgatschlüssel (sequenzielle Nummern) verwendet werden.
+
+
 Ungeordnete Anforderungssammlung
 --------------------------------
 
@@ -497,8 +526,8 @@ Ungeordnete Anforderungssammlung
 	* Musterverträge?
 	* Müsste von fachkundigen Juristen erstellt werden
 * Benutzer könnte Anfrage für gebührenfreie Nutzung stellen, die der Künstler beantwortet.
-* Das System muss gegen Missbrauch und DOS geschützt werden
-	* Nur eine bestimmte Anzahl an Anfragen pro Benutzer pro Zeitraum: gilt für Einträge ebenso wie für Abfragen
+* Das System muss gegen Missbrauch und DDOS-Attacken (distributed denial of service) geschützt werden
+	* Nur eine bestimmte Anzahl an Anfragen pro Benutzer (Netzwerkteilnehmer/IP-Adresse!?) pro Zeitraum: gilt für Einträge ebenso wie für Abfragen
 * Das System muss geeignete Authorisierungsmethoden verwenden
 	* Mitglieder dürfen nur ihre eigenen Daten ändern
 	* Verwaltung darf alle Daten ändern
@@ -517,5 +546,13 @@ Ungeordnete Anforderungssammlung
 	* Wie wird sichergestellt, dass Leute, die mitentwickeln, nicht auf alle Daten zugreifen können oder durch Erweiterungen des Codes Funktionen einbauen, die ihnen das erlaubt?
 	* Wie werden die Login-Daten zur Datenbank geheim gehalten, wenn der Code versioniert wird?
 * `DJ Monitor <http://www.djmonitor.com/>`_ als Box zur Analyse von DJ-Sets verwenden?
-* Sollten bestimmte Account-Rollen ohne Freischaltung verfügbar sein, bspw. Nutzer? Mitglieder und Vertreter müssen auf jeden Fall freigeschaltet werden!
+* Sollten bestimmte Account-Rollen ohne Freischaltung verfügbar sein, bspw. Nutzer? Mitglieder und Vertreter müssen auf jeden Fall freigeschaltet werden! Was bringt es dem einfachen Nutzer; was kann er tun und was will er von dem System?
 * Analysen müssen nach gesetzlichen und ggf. anderen Maßstäben anonymisiert werden
+* Infrastrukturelle Anforderungen: Der Systementwurf wird der Anforderung Rechnung tragen, dass Änderungen im System nachvollziehbar sein müssen und durch Änderungen keine Daten verloren gehen. Auf infrastruktureller Ebene müssen aber Backups der Datenbanken und Webservices vorgenommen werden und ggf. eine Redundanz für hohe Erreichbarkeit sichergestellt werden.
+* Systemstruktur
+	* Hardware: Server, Computergehäuse mit Elektronik, Prozessor, RAM, Festplatten, Netzwerkkarte
+	* Betriebssystem: Dateisystem, Dateien, Datenbanken
+	* Datenbank: Datenmodell, Tabellen
+	* Benutzerzugriff: Zugangsverwaltung
+	* API: Systemschnittstelle
+	* Benutzeroberfläche: Website, GUI, App
