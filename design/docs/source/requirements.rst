@@ -115,7 +115,7 @@ Mitgliederverwaltung
 	* Mitglieder müssen Agenturen, Verlage oder Management als Vertreter erklären können, damit diese in ihrem Auftrag Anmeldung, Abrechnung, etc. vornehmen können.
 	* Möglichkeit zur Authorisierung von Verlagen oder Management zur Wahrnehmung der Rechte und Abrechnung, etc.
 * Fragen/Probleme
-	* Registrierung auch von GEMA-Mitgliedern und Urhebern, die keiner VG angehören?
+	* Registrierung auch von GEMA-Mitgliedern und Urhebern, die keiner VG angehören? (definitiv ja, denn wir sind gesetzlich gehalten, auch menschen, die nicht mitglied der verwertungsgesellschaft sind, eine verwertung zu ermöglichen. fällt dann aber unter 'account'!?)
 	* Datenschutzproblematik bei erhobenen Daten?
 	* Benutzerprofil mit Bild und Repertoire (ähnlich Discogs)?
 
