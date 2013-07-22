@@ -15,6 +15,7 @@ Contents:
    Anforderungsanalyse <requirements>
    Logisches Datenmodell <logical_data_model>
    Physisches Datenmodell <physical_data_model>
+   Architecture <architecture>
 
 
 Indices and tables
