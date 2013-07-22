@@ -4,16 +4,18 @@ Architecture
 ############
 
 
-Layers:
+Layers
+
 - `System`_
 	- Server Hardware
 	- Operating System
-	- Database Management System, Script Interpreter
-	- Script Frameworks
+	- `Database Management System`_
+	- `Scripting Language and Interpreter`_
+	- `Scripting Frameworks`_
 - `Data Layer`_
 	- `Database Schema`_: data representation in the database
 	- `Data Management`_: classes to access and modify the data
-- `Business Layer`_
+- Business Layer
 	- ...
 - `Presentation Layer`_
 	- `Output Protocol`_: protocol defining how the data can be accessed
@@ -43,6 +45,26 @@ Whether or not certain environments should share some of their components
 System
 ******
 
+Database Management System
+==========================
+
+Currently considering PostgreSQL. Open source and has advantages over MySQL.
+
+
+Scripting Language and Interpreter
+==================================
+
+As the scripting language and its interpreter Python is considered at the moment.
+
+
+Scripting Frameworks
+====================
+
+Python frameworks found suiteable are:
+
+- Pyramid
+- SQLAlchemy
+
 
 Data Layer
 **********
@@ -50,13 +72,13 @@ Data Layer
 Database Schema
 ===============
 
-The database schema should 
+The database schema should comply with the principle of `Revisionssicherheit <https://de.wikipedia.org/wiki/Revisionssicherheit>`_.
 
 Data Management
 ===============
 
-Business Layer
-**************
+These classes should abstract the Revisionssicherheit.
+
 
 Presentation Layer
 ******************
@@ -87,7 +109,7 @@ HTTP Request Methods
 - `PUT <https://tools.ietf.org/html/rfc2616#section-9.6>`_: updating entities
 - `DELETE <https://tools.ietf.org/html/rfc2616#section-9.7>`_: deleting entities
 - `TRACE <https://tools.ietf.org/html/rfc2616#section-9.8>`_: (not used)
-- `CONNECT <https://tools.ietf.org/html/rfc2616#section-9.9>'_: (not used)
+- `CONNECT <https://tools.ietf.org/html/rfc2616#section-9.9>`_: (not used)
 
 
 
@@ -96,9 +118,7 @@ MIME Type
    
 The format will be requested in the "Accept" HTTP header field with specifying a corresponding `MIME Type`_:
 
-   GET / HTTP/1.1 Accept:
-   application/vnd.vendor_name.application_name+file_format; version=0.1
-
+::
    GET / HTTP/1.1 Accept:
    application/vnd.vendor_name.application_name+file_format; version=0.1
 
@@ -175,6 +195,7 @@ Versioning
 
 The version will be requested in the "Accept" HTTP header field with specifying an optional parameter to the `MIME Type`_:
 
+::
 	GET / HTTP/1.1
 	Accept: application/vnd.vendor_name.application_name+file_format; version=0.1
 
