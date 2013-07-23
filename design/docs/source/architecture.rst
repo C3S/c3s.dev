@@ -7,19 +7,21 @@ Architecture
 Layers
 
 - `System`_
-	- Server Hardware
+	- `Server Hardware`_
 	- Operating System
+	- `Data Store`_
 	- `Database Management System`_
 	- `Scripting Language and Interpreter`_
 	- `Scripting Frameworks`_
 - `Data Layer`_
 	- `Database Schema`_: data representation in the database
-	- `Data Management`_: classes to access and modify the data
-- Business Layer
+	- `Data Management`_ (scripting implementation): classes to access and modify the data
+- `Business Layer`_
 	- ...
 - `Presentation Layer`_
-	- `Output Protocol`_: protocol defining how the data can be accessed
-	- `Output Formats`_: formats of how the data is represented
+	- `Procotol Handling`_ (scripting implementation): translates the protocol into business logic
+	- `Communcation Protocol`_: protocol defining how the data can be accessed
+	- `Data Formats`_: formats of how the data is represented
 
 
 Environments
@@ -45,10 +47,25 @@ Whether or not certain environments should share some of their components
 System
 ******
 
+
+Server Hardware
+===============
+
+The server's and database's location probably have to be physically located in Germany to comply with German Privacy Law.
+
+Considerations have to be done about the necessary performance of the system.
+
+
+Data Store
+==========
+
+A seperate data store might be needed to store large amounts of data, e.g. the original work uploaded by the artist for acoustic fingerprinting.
+
+
 Database Management System
 ==========================
 
-Currently considering PostgreSQL. Open source and has advantages over MySQL.
+Currently considering PostgreSQL. Open source and has advantages over MySQL. The database management system might be installed on a seperate server which is different from the one running the application. 
 
 
 Scripting Language and Interpreter
@@ -69,22 +86,54 @@ Python frameworks found suiteable are:
 Data Layer
 **********
 
+
 Database Schema
 ===============
 
 The database schema should comply with the principle of `Revisionssicherheit <https://de.wikipedia.org/wiki/Revisionssicherheit>`_.
+
 
 Data Management
 ===============
 
 These classes should abstract the Revisionssicherheit.
 
+This layer abstracts the database schema from the application. It is the only place where database requests are performed. All other classes have to use classes from this layer to access the database.
+
+If there's a `Data Store`_, this is the place where the access to it is handled.
+
+
+Business Layer
+**************
+
+This is where the logic is implemented. The logic is independent from the representation.
+
 
 Presentation Layer
 ******************
 
-Output Protocol
-===============
+
+Procotol Handling
+=================
+
+This layer translates the available business logic into protocol and formats. It parses the user's requests, calls business logic methods and sends responses in the corresponding data format.
+
+This is the only layer which should be concerned with the REST API.
+
+It's tasks are:
+
+- Transactional
+	- Handling the `Communcation Protocol`_
+	- Parsing user request from specific `Data Formats`_
+	- Calling business logic and receiving business data
+	- Transforming business data into specific `Data Formats`_
+- Performance
+	- Load balancing
+	- Load throttling
+
+
+Communcation Protocol
+=====================
 
 
 Requests
@@ -112,7 +161,6 @@ HTTP Request Methods
 - `CONNECT <https://tools.ietf.org/html/rfc2616#section-9.9>`_: (not used)
 
 
-
 MIME Type
 ^^^^^^^^^
    
@@ -127,7 +175,6 @@ Reuse of "application/vnd.api+json"? Lacking optional parameter "version".
 Specify format and schema "application/wrml; format='http://api.formats.wrml.org/application/json'; schema='http://api.schemas.wrml.org/common/Format-v0.1'"? 
    
 A `registration <https://www.iana.org/cgi-bin/mediatypes.pl>`_ of the mime type should be considered to comply with international web standards. A list of already registered vendor mime types can be found `here <https://www.iana.org/assignments/media-types/application>`_
-
 
 
 Responses
@@ -208,6 +255,7 @@ UTF-8 should be considered as the only charset for delivering content to the cli
 
 Output Formats
 ==============
+
 
 Formats
 -------
