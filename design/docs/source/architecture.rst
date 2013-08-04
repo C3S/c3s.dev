@@ -289,5 +289,5 @@ The schemas for the corresponding formats should be defined.
 References
 **********
 
-[#Masse]  Mark Massé, REST API Design Rulebook, O'Reilly, October 2011
+[#masse]  Mark Massé, REST API Design Rulebook, O'Reilly, October 2011
 
