@@ -253,8 +253,21 @@ Charsets
 UTF-8 should be considered as the only charset for delivering content to the client as it is best suitable for international special characters.
 
 
-Output Formats
-==============
+URI Design
+----------
+
+Best practices
+
+- No tailing forward slash ([#masse]_ p. 12)
+- Use hyphens not underscores ([#masse]_ p. 12)
+- Lowercase letters should be preferred ([#masse]_ p. 13)
+- File extensions should not be included in URIs ([#masse]_ p. 13)
+	- Use Content-Type and Accept headers to determine the format
+
+
+
+Data Formats
+============
 
 
 Formats
@@ -271,4 +284,10 @@ The schemas for the corresponding formats should be defined.
 
 - `JSON Schema <http://json-schema.org/>`_
 - `XML Schema Definitions (XSD) <https://en.wikipedia.org/wiki/XML_Schema_%28W3C%29>`_
+
+
+References
+**********
+
+[#Masse]  Mark Massé, REST API Design Rulebook, O'Reilly, October 2011
 
