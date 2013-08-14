@@ -16,7 +16,9 @@ Layers
 - `Data Layer`_
 	- `Database Schema`_: data representation in the database
 	- `Data Management`_ (scripting implementation): classes to access and modify the data
-- `Business Layer`_
+- `Logic Layer`_
+	- `Authentication and Authorization`_
+	- `User Management`_
 	- ...
 - `Presentation Layer`_
 	- `Procotol Handling`_ (scripting implementation): translates the protocol into business logic
@@ -103,10 +105,29 @@ This layer abstracts the database schema from the application. It is the only pl
 If there's a `Data Store`_, this is the place where the access to it is handled.
 
 
-Business Layer
-**************
+Logic Layer
+***********
 
 This is where the logic is implemented. The logic is independent from the representation.
+
+Logic to manage works, licences, licensees, utilisations, accounting, etc.
+
+
+Authentication and Authorization
+================================
+
+Authentication and Authorization have to be implemented in the Logic Layer. If they would be part of the presentation layer and specific to lets say the REST/JSON implementation, it would have to be re-implemented for XML-RPC.
+
+
+User Management
+===============
+
+Users should be organised in groups.
+
+Permissions for certain operations can be assigned to users and/or user groups. This has to be configurable.
+
+
+
 
 
 Presentation Layer
@@ -134,6 +155,8 @@ It's tasks are:
 
 Communcation Protocol
 =====================
+
+REST is considered as the main communication protocol. RPC might be a secondary protocol.
 
 
 Requests
@@ -258,10 +281,10 @@ URI Design
 
 Best practices
 
-- No tailing forward slash ([#masse]_ p. 12)
-- Use hyphens not underscores ([#masse]_ p. 12)
-- Lowercase letters should be preferred ([#masse]_ p. 13)
-- File extensions should not be included in URIs ([#masse]_ p. 13)
+- No tailing forward slash ([MASSE2011]_ p. 12)
+- Use hyphens not underscores ([MASSE2011]_ p. 12)
+- Lowercase letters should be preferred ([MASSE2011]_ p. 13)
+- File extensions should not be included in URIs ([MASSE2011]_ p. 13)
 	- Use Content-Type and Accept headers to determine the format
 
 
@@ -269,11 +292,16 @@ Best practices
 Data Formats
 ============
 
+Any protocol might be handled using different data formats. The main formats for REST and RPC are JSON and XML and could appear in any combination: REST with JSON, REST with XML, XML-RPC, and JSON-RPC.
+
+REST with JSON will probably be the primary choice.
+
 
 Formats
 -------
 
 - JSON should be the main format as it is commonly used
+- JSONP can be easily supported from the JSON implementation as it is just a method call wrapper for JavaScript
 - XML might be another format as it widely established
 
 
@@ -289,5 +317,5 @@ The schemas for the corresponding formats should be defined.
 References
 **********
 
-[#masse]  Mark Massé, REST API Design Rulebook, O'Reilly, October 2011
+[MASSE2011]  Mark Massé, REST API Design Rulebook, O'Reilly, October 2011
 
