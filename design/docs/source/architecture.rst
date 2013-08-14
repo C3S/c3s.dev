@@ -116,7 +116,11 @@ Logic to manage works, licences, licensees, utilisations, accounting, etc.
 Authentication and Authorization
 ================================
 
-Authentication and Authorization have to be implemented in the Logic Layer. If they would be part of the presentation layer and specific to lets say the REST/JSON implementation, it would have to be re-implemented for XML-RPC.
+Authentication and Authorization have to be implemented in the Logic Layer. If they would be part of the presentation layer and specific to lets say the REST/JSON implementation, it would have to be re-implemented for XML-RPC, SOAP or any future protocol.
+
+Access Management: Logic layer has methods to check if a certain user is allowed to perform a certain operation. Additionally the operation itself should throw an exception if the user is not allowed to perform it.
+
+The use of OAuth and OpenID should be considered.
 
 
 User Management
@@ -268,6 +272,16 @@ The version will be requested in the "Accept" HTTP header field with specifying 
 ::
 	GET / HTTP/1.1
 	Accept: application/vnd.vendor_name.application_name+file_format; version=0.1
+	
+The version-controlled call for JSONP is possible with JavaScript in theory. But the following problem has to be investigated:
+
+	"User agents may support other MIME types for other languages, but must not support other MIME types for the languages in the list above. User agents are not required to support the languages listed above."
+	http://www.w3.org/html/wg/drafts/html/master/scripting-1.html#support-the-scripting-language
+
+::
+	<script type="application/vnd.c3s.api+javascript; version=1.1" language="JavaScript" src="https://api.c3s.cc/users/123?callback=my_javascript_callback_method"></script>
+	
+
 
 
 Charsets
@@ -303,6 +317,7 @@ Formats
 - JSON should be the main format as it is commonly used
 - JSONP can be easily supported from the JSON implementation as it is just a method call wrapper for JavaScript
 - XML might be another format as it widely established
+- CSV might be considered for exporting data for statistical evaluation
 
 
 Schemas
@@ -318,4 +333,6 @@ References
 **********
 
 [MASSE2011]  Mark Massé, REST API Design Rulebook, O'Reilly, October 2011
+[KLABNIK2011] http://blog.steveklabnik.com/posts/2011-07-03-nobody-understands-rest-or-http
+[SEELY2010] http://www.informit.com/articles/article.aspx?p=1566460
 
