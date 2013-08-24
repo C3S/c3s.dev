@@ -24,9 +24,9 @@ session=Session()
 
 #now play around with the database
 
-agent=Agent(Username='schas')
-work=Work(Name='bla')
-work1=Work(Name='blorf')
+agent=Agent(Username='Agent1')
+work=Work(Name='Work1')
+work1=Work(Name='Work2')
 
 work.children.append(work1)
 session.add_all([agent,work])
