@@ -498,6 +498,8 @@ Datenbankmodellierung
 Ungeordnete Anforderungssammlung
 --------------------------------
 
+* "Real-time Dashboard for your account"; slide 31: http://de.slideshare.net/wsenges/cc-global-summit-buenos
+* Micropayments, Donations, Voluntary payments; slide 17: http://de.slideshare.net/wsenges/cc-global-summit-buenos
 * Gebühren und Künstler gehören zu einer Verwertungsgesellschaft, über die die Beträge abgerechnet werden.
 	* Entsprechend können die Beträge von der C3S ausgeschüttet oder bspw. an die GEMA weitergegeben werden.
 * Das erste Modul, das fertig werden muss, ist die Mitgliederverwaltung und die Song/Metadaten-Datenbank.
