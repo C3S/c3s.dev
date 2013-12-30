@@ -1,35 +1,37 @@
-﻿=============
-Anforderungen
-=============
+﻿============
+Requirements
+============
 
-Dieses Dokument dient der Sammlung und Strukturierung der Anforderungen an das benötigte IT-System der C3S.
+This document is a collection requirements for the IT system for the C3S.
+
+It is currently being translation into English.
 
 
-Mögliche Strategie
-------------------
+Possible Strategies
+-------------------
 
-* Zunächst Mitglieder und Repertoire sammeln
-* Mitglieder- und Repertoireverwaltung müssen zuerst existieren
-* Elektronische Tanzmusik könnte ein attraktives erstes Marktsegment sein
-	* Wird viel in Clubs gespielt
-	* erhält wegen Pauschalisierung mutmaßlich verhältnismäßig wenig Ausschüttung durch die GEMA
-	* Vereinzelte Clubbetreiber haben Interesse an Abrechnungsgenauigkeit durch Blackboxen signalisiert
-* Mitglieder bei der Registrierung nach Stilrichtungen und Anwendungsgebieten fragen, damit wir uns einen Überblick verschaffen können
-	* Musik für Computerspiele?
-	* Club-Musik?
-	* Elektronisch/Pop/Klassik?
+* Get members and a repertoire
+* Members and repertoire need to exist
+* Electronic dance music might be an attractive target market segment for the C3S
+	* Electronic dance music is played heavily in night clubs but not part of the mainstream
+	* It is therefore underrepresented in flat-rate distribution of licencing fees
+	* Night club owners contacted the C3S and signaled support for new and more detailed billing methods 
+* Members should give the genre of their music with the registration in order to get an overview over the genres of all members
+	* Music for computer games?
+	* Club music?
+	* Electronic/pop/classic?
 
 	
-Überblick
----------
+Overview
+--------
 
-* **Accountverwaltung**: stellt abstrakte und von der Rolle unabhängige Zugangskonten für das Datenverarbeitungssystem der C3S zur Verfügung
-* **Mitgliederverwaltung**: erweitert die Accountverwaltung um Mitgliedsdaten und weitere Möglichkeiten, bspw. der Repertoireverwaltung
-* **Vertreterverwaltung**: dient Vertretern, die von Mitgliedern authorisiert werden, deren Belange zu regeln
-* **Repertoireverwaltung**: ermöglicht es Mitgliedern (oder Vertretern) ihr Repertoire zu verwalten
-* **Lizenznehmerverwaltung**: Nutzer der Werke verwalten ihre Daten
-* **Lizenzverwaltung**: beschreibt die Bedingungen einer Lizenz/Nutzung; Preis für Nutzungsart (Radiosendung, Konzert, DJ-Set, etc.) in Nutzungsumfang (Zeit, Publikumsgröße, etc.)
-* **Lizensierungsverwaltung**: beschreibt die konkrete Nutzung eines Werks durch den Lizenznehmer im Rahmen der erteilten Lizenz
+* **Account management**: provides abstract and role independent user accounts for the C3S system
+* **Member management**: extends the account management by data for members which is needed for the repertoire management
+* **Agent management**: agents are authorized by members to handle their interests
+* **Repertoire management**: enables members (and their agents) to manage their repertoire
+* **Licensee management**: Licensees role for accounts
+* **Licence management**: describes the conditions of licences; prices for licensing according to usage type (radio broadcasting, concerts, dj sets, etc.) in usage scale (time, audience, etc.)
+* **Licensing management**: describes the action of licencing itself of a work by a licencee in the context of the usage
 * **Verrechnungsverwaltung**: stellt die Verrechnungslogik der konkreten Nutzungen dar; für eine Nutzung wird nach den Lizenzbestimmungen ein bestimmtes Entgeld fällig
 * **Abrechnungsverwaltung**: die Abrechnung der konkreten Lizenzentgelte mit den Mitgliedern (Werkschaffenden/Lizenzgebern) bzw. Nutzern (Lizenznehmern)
 	
@@ -558,3 +560,4 @@ Ungeordnete Anforderungssammlung
 	* Benutzerzugriff: Zugangsverwaltung
 	* API: Systemschnittstelle
 	* Benutzeroberfläche: Website, GUI, App
+* Payment providers: Markus has a contact with professional experience in working with various payment providers who does not want to be officially named
